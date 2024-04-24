@@ -1,0 +1,41 @@
+Steps to follow before you can work on the Assignment.
+
+1. Login into https://cloud.mongodb.com/
+2. Create a database - using Shared Cluster - Its Free - Give Cluster Name - Assignment.
+3. You would be asked to creata a user for DB access.
+	a. Cerate a user : admin
+				password : Admin@123
+4. Network Access Setting will pop up.
+	Select Add my current IP Address.
+5. Connec to our DataBase - Click Connect.
+	a. Connect to MongoDB Shell.
+		1. Select - I do not have a mongo DB shell Installed.
+		2. Download mongosh 1.8.0
+		3. Extract the zip file
+		4. Place the folder inside C:\Program Files (x86)\mongosh-1.8.0-win32-x64
+		5. Add the mongosh binary to your PATH environment variable - https://www.mongodb.com/docs/mongodb-shell/install/#procedure
+
+	b. Run your connection string in your command line - Windows Terrminal or Command Prompt.
+		mongosh "mongodb+srv://assignment.g4b75fj.mongodb.net/Assignment" --apiVersion 1 --username admin
+		password : Admin@123
+
+	c. You will finally get connected to MongoDB with this output.
+	Atlas atlas-tccuow-shard-0 [primary] Assignment>
+
+6. Select A (Cntrl+A) - Copy movie.Script.txt content from the URL that Professor has provided and Paste it inside Command Prompt.
+	Atlas atlas-tccuow-shard-0 [primary] Assignment> Paste here!
+
+	The query will execute and it will create the Collections for you.
+
+	Proof of execution - 
+		  acknowledged: true,
+		  insertedIds: {
+		    '0': 'movie:1',
+		    '1': 'movie:2',
+		    '2': 'movie:3',
+		    '3': 'movie:4',
+		    '4': 'movie:5',
+		    '5': 'movie:6',
+		    '6': 'movie:7',
+		    '7': 'movie:8',
+		    '8': 'movie:9',

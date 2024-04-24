@@ -1,0 +1,121 @@
+Mongo DB Assignment
+
+Create an Assignment database.
+Copy all the script from movie_Script.txt file and execute on the Mongo DB server under Assignment database.
+
+
+
+A.	Write the following script to fetch the document on movie collection.
+================================================
+
+1.	Fetch all the document from movie collection.
+	db.movie.find.pretty();
+
+2.	Fetch all the document with director firstname â€œRichardâ€.
+	db.movie.find({"director.first_name":"Richard"});
+
+3.	Fetch all the document with director â€œEastwood Clintâ€.
+	db.movie.find({"director.last_name":"Eastwood","director.first_name":"Clint"});
+
+4.	Fetch all the document with actor â€œBruce Willisâ€.
+	db.movie.find({"actors.last_name":"Willis","actors.first_name":"Bruce"});
+
+5.	Fetch all the document with director birthdate is older than 1900.
+	db.movie.find({"director.birth_date":{$gte:'1900'}});
+
+6.	Fetch all the document with movies released in the 90s.
+	db.movie.find({"year":{$gte:1990 , $lt:2000}}, { _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1});
+
+7.	Fetch all the document with movies released before the year 2000 or after 2010.
+	db.movie.find({ $or: [{ year: { $lt: 2000 } }, { year: { $gt: 2010 } } ] }, { _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1});
+
+8.	Fetch all the movie distinct title.
+	db.movie.distinct("title");
+
+9.	Count the number of movies released in USA.
+	db.movie.countDocuments({country: 'USA'});
+
+10.	Count the movie released between year 1990 to 1995.
+	db.movie.countDocuments({ year : {$gte:1990 , $lte : 1995}});
+
+11.	Fetch all the country where movies released.
+	db.movie.distinct("country");
+
+12.	Fetch all the document with movies titled as â€œGladiatorâ€.
+	db.movie.find({"title":"Gladiator"},{ _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1});
+
+13.	Fetch distinct genre values of movies.
+	db.movie.distinct("genre");
+
+14.	Fetch all the document with movie â€œcrime" or "drama" genre.
+	db.movie.find({ $or: [ {"genre":"crime"} , {"genre":"drama"} ] }, { _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1});
+
+15.	Fetch all the movies directed by "Hitchcock", display only title and year and sort them by year.
+	db.movie.find({"director.last_name":"Hitchcock"}, { _id: 0, title: 1, year: 1}).sort({year: 1});
+
+16.	Fetch the list of movies where "Cotillard" played. 
+	db.movie.find({"actors.last_name":"Cotillard"}, { _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1});
+
+17.	Fetch the list of movies released between 1967 and 1995.
+	db.movie.find({ year : {$gte:1967 , $lte : 1995} }, { _id: 0, title: 1, year: 1, genre: 1, country: 1}).sort({year: 1});
+
+18.	Fetch the list of movies released between 1967 and 1995, by displaying only title, year, directorâ€™s last name sorted by year.
+	db.movie.find({ year : {$gte:1967 , $lte : 1995} }, { _id: 0, title: 1, year: 1, "director.last_name": 1}).sort({year: 1});
+
+19.	Fetch the number of movies by country.
+	db.movie.aggregate([{$group:{_id:"$country",total:{$sum:1}}}]);
+
+20.	Fetch the number of movies by country and actor.
+	db.movie.aggregate([
+	  { $unwind: "$actors" },
+	  { $group: { _id: { country: "$country", actor: "$actors._id", actor_first_name: "$actors.first_name", actor_last_name: "$actors.last_name" }, count: { $sum: 1 } } },
+	  { $group: { _id: "$_id.country", actors: { $push: { _id: "$_id.actor", first_name: "$_id.actor_first_name", last_name: "$_id.actor_last_name", count: "$count" } }, total: { $sum: "$count" } } }
+	]);
+
+
+====================================================
+
+
+B.	Write the script to update document on movie collection.
+===========================================================
+
+
+1.	Update the movie with title â€œThe Titanicâ€ from â€œTitanicâ€ where _id is "movie:3".
+	db.movie.updateOne({_id: 'movie:3'},{$set:{title: 'The Titanic'}});
+	db.movie.find({_id: 'movie:3'},{ _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1});
+
+2.	Update the movie with genre â€œThe Comedyâ€ from "ComÃ©die" where _id is â€œmovie:7â€.
+	db.movie.updateOne({_id: 'movie:7'},{$set:{genre: 'The Comedy'}});
+	db.movie.find({_id: 'movie:7'},{ _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1});
+
+3.	Update the movie with year 1990 from 1999 where _id is "movie:6".
+	db.movie.updateOne({_id: 'movie:6'},{$set:{year: 1990}});
+	db.movie.find({_id: 'movie:6'},{ _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1});
+
+4.	Update the movie with country â€œFRâ€ from "USA" where _id is â€œmovie:3â€.
+	db.movie.updateOne({_id: 'movie:3'},{$set:{country: "FR"}});
+	db.movie.find({_id: 'movie:3'},{ _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1});
+
+5.	Update the movie with directorâ€™s last_name is â€œDoeâ€ from "Scott" where _id is "movie:9".
+	db.movie.updateOne({_id: 'movie:9'},{$set:{"director.last_name": "Doe"}});
+	db.movie.find({_id: 'movie:9'},{ _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1,  director : 1});
+
+6.	Update the movie with directorâ€™s first_name â€œOliveâ€ from â€œBruceâ€ where _id is "movie:12". - ERROR in Q.
+	db.movie.updateOne({_id: 'movie:12'},{$set:{"director.first_name": "Olive"}});
+	db.movie.find({_id: 'movie:12'},{ _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1,  director : 1});
+
+7.	Update the movies with year 1990 where year is 1994.
+	db.movie.updateMany({year:{$eq:1994}},{$set:{year:1990}});
+	db.movie.find({year: 1990},{ _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1});
+
+8.	Update the movies with country â€œUSAâ€ from "FR".
+	db.movie.updateMany({country:{$eq:"FR"}},{$set:{country:"USA"}});
+	db.movie.countDocuments({country: 'USA'});
+
+9.	Update the movies with genre â€œDramaâ€ from â€œActionâ€.
+	db.movie.updateMany({genre:{$eq:"drama"}},{$set:{genre:"action"}});
+	db.movie.countDocuments({genre: 'action'});
+
+10.	Update the movies with directorâ€™s birth_date to 1990 where birth date older than 1980.
+	db.movie.updateMany({"director.birth_date":{$gt:"1980"}},{$set:{"director.birth_date":"1990"}});
+	db.movie.find({"director.birth_date": '1990'},{ _id: 1, title: 1, year: 1, genre: 1, summary: 1, country: 1,  director : 1});
