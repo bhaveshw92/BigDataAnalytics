@@ -1,0 +1,146 @@
+1. Create a database “Movies”.
+2. Create a “mov” schema under “Movies”.
+3. Create a table call “Movie_Director “under mov schema with the following specificationsa. Movie_Director must have the following attribute.
+Column Name Data Type Description
+Director_ID Integer Director ID
+Director_First_Name Varchar Director First Name
+Director_Last_Name Varchar Director Last Name
+Director_Age_in_Years Integer Director Age in Year
+Director_Gender Varchar Date of Joining
+CreatedOn Date Record Creation Date
+b. Add the following constraint.
+i. Director_ID: Auto Increment, Primary Key, Not null, clustered index.
+ii. CreatedOn: Not Null, Default as Server date.
+c. Insert the following records based on the following specifications.
+i. Director_ID: Director ID must be starts from 100 and incremented by 10.
+ii. CreatedOn: Created as default date as system date.
+d. After Insertion, Data looks like
+4. Create a Movies table under mov schema with the following specificationsa. Movies table must have the following attributes.
+Column Name Data Type Description
+Movie_ID Integer Director ID
+Movie_Name Varchar Movie Name
+Movie_Released_Year Integer Movie Released Year
+Movie_Lead_Studio Varchar Movie Released By
+Movie_Language Varchar Movie Language
+Movie_Category Varchar Movie Category
+Movie_Duration_in_Min Integer Movie Duration in minutes
+Movie_Worldwide_Earning_in_$M Decimal (15,2) Movie Worldwide earnings
+Movie_Type Varchar Movie Type
+Director_ID Integer Director ID
+CreatedOn Date Record Creation Date
+a. Add the following constraint.
+i. Movie_ID: Auto Increment, Primary Key, Not null, clustered index.
+ii. CreatedOn: Not Null, Default as Server date.
+b. Insert the following records based on the following specifications.
+i. Movie_ID: Movie ID must be starts from 1000 and incremented by 1.
+ii. CreatedOn: Created as default date as system date.
+iii. Director_ID: Foreign key from Movie_Director table.
+iv. Movie_Type: Movie Type as Hollywood and Bollywood
+c. After Insertion, Table looks like as shown below
+Create a Movie_Actor table under mov schema with the following specificationsa. Movie_Actor table must have the following attributes.
+Column Name Data Type Description
+Actor_ID Integer Actor ID
+Actor_First_Name Varchar Actor First Name
+Actor_Last_Name Varchar Actor Last Name
+Actor_Age_in_Years Integer Actor Age in Years
+Actor_Location Varchar Actor Location
+Movie_ID Integer Movie ID
+CreatedOn Date Record Creation Date
+b. Add the following constraint.
+i. Actor_ID: Auto Increment, Primary Key, Not null, clustered index.
+ii. CreatedOn: Not Null, Default as Server date.
+c. Insert the following records based on the following specifications.
+i. Actor_ID: Actor ID must be starts from 10 and incremented by 1.
+ii. CreatedOn: Created as default date as system date.
+iii. Movie_ID: Foreign key from Movies table.
+d. After Insertion, Table looks like as shown below
+6. Create a Movie_Rating table under mov schema with the following specificationsa. Movie_Rating table must have the following attributes.
+Column Name Data Type Description
+Movie_Rating_ID Integer Movie Rating ID
+Rating_Audience_Score Varchar Actor First Name
+Rating_Rotten_Tomatoes Varchar Actor Last Name
+Movie_ID Integer Movie ID
+CreatedOn Date Record Creation Date
+b. Add the following constraint.
+i. Movie_Rating_ID: Auto Increment, Primary Key, Not null, clustered index.
+ii. CreatedOn: Not Null, Default as Server date.
+c. Insert the following records based on the following specifications.
+iv. Movie_Rating_ID: Actor ID must be starts from 1 and incremented by 1.
+v. CreatedOn: Created as default date as system date.
+vi. Movie_ID: Foreign key from Movies table.
+d. After Insertion, Table looks like as shown below
+7. Write the following Query based on the above datasets.
+a. List all the Movies information from the Movies table.
+b. List all the Director information from the Director table.
+c. List all the Actor information from the Actor table.
+d. List all the Rating information from the Rating table.
+e. List all the movie released in year “2010”.
+f. List all the movie released by “The Weinstein Company” studio.
+g. List all the movie released in “English”.
+h. List all the movie whose name starts with ‘G’.
+i. Display all the movie under “Comedy” category.
+j. Display all the movie where movie type is “Hollywood”.
+k. Display all the “Female” directors.
+l. Display all the director whose Age is more than 45 years.
+m. Display all the Actors from “Los Angeles”.
+n. Display all the Actor whose Age is less than 50 years.
+o. Display all the Actor whose name is starts from “J”.
+p. Display all the Actor who is from “Los Angeles” or “New York”.
+q. List Director_FullName, Director_Age_in_Years, Director_Gender from Director
+[Director_FullName =Director_First_Name + " " + Director_Last_Name]
+r. List Director_FullName, Director_Age_in_Years, Director_Gender from Director whose Age is 
+less than 45 years. [Director_FullName =Director_First_Name + " " + Director_Last_Name]
+8. Write the following Query based on the above datasets.
+a. Display all the Movies and their Actors information based on the relationship.
+b. Display the Movies name and their Ratings.
+c. Display all the Movies, Actors, and Directors information based on the relationship.
+d. Display all the Movies, Actors, Directors, and Movie Rating information based on the 
+relationship.
+e. Display all the Movies, Actors, Directors, and Movie Rating information whose 
+Rating_Audience_Score is more than 80% based on the relationship.
+f. Display all the Movies information whose Rating_Rotten_Tomatoes is more than 90%.
+9. Write the following Query based on the above datasets.
+a. Create new table MovieCopy and copy all records of Movie table.
+b. Create a new table DirectorCopy and copy only the schema of director table.
+c. Create new table ActorCopy and copy all records of Actor table.
+d. Create new table RatingCopy and copy all records of Rating table.
+e. Create new table RatingCopies and copy only the schema from Rating table.
+10. Write the following Query based on the above datasets.
+a. Delete all the record from RatingCopy table.
+b. Delete all the movie from MovieCopy whose released in year “2010”.
+c. Delete all the movie from MovieCopy where language is ‘Hindi.
+d. Delete all the movie from MovieCopy where Rating_Audience_Score is less than 80%.
+e. Delete all the movie from MovieCopy where Rating_Rotten_Tomatoes is less than 70%.
+11. Write the following Query based on the above datasets.
+a. Update the Rating_Audience_Score by 85% for the movie, released by “The Weinstein 
+Company” studio.
+b. Update the Rating_Rotten_Tomatoes by 75% for the movie, released in Year 2010.
+c. Increase the Actor Age by 2 years whose Name is “Michael Cera”.
+d. Increase the Director Age by 3 years who has directed the movie “Leap Year”.
+e. Increase the Director and Actor Age by 1 years who has directed the movie “Leap “Universal” 
+studio.
+12. Write the following Query based on the above datasets.
+a. Create a view to display all the movie information’s.
+b. Create a view to display all the movies and their rating information.
+c. Create a view to display all the movies and their actor information.
+d. Create a view to display all the movies, rating, actor along with director information.
+e. Create a view to display all the information based on the result set returned by the query as 
+shown belo
+List movie, Director_FullName, Director_Age_in_Years, Director_Gender from Director
+[Director_FullName =Director_First_Name + " " + Director_Last_Name]
+13. Write the following Query based on the above datasets.
+a. Retrieve the list of all Databases.
+b. Display the byte size of all tables in databases.
+c. List of tables with number of records.
+d. List of Primary Key and Foreign Key for Whole Database.
+e. Get all Nullable columns of a table.
+f. Get All table that do not have primary key.
+g. Get All table that do not have identity column. 
+h. Get First Date of Current Month.
+i. Get Last date of Current month.
+j. Get first date of next month.
+k. Get Last date of next month.
+l. Get all the information from the tables.
+m. Get all columns contain any constraints.
+n. Get all tables that contain a view.
+o. Get all columns of table that using in views
