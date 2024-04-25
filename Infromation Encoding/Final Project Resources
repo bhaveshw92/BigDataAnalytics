@@ -1,0 +1,10 @@
+Information Encoding - Final Project Resources and Guidelines.
+
+https://learn.microsoft.com/en-us/aspnet/core/security/authorization/secure-data?view=aspnetcore-6.0
+
+Execution Debug.
+===============
+
+
+https://stackoverflow.com/questions/57066856/command-dotnet-ef-not-found
+dotnet tool install --global dotnet-ef
