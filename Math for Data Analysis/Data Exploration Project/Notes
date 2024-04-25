@@ -1,0 +1,109 @@
+What can be the outcome of interest if I have data for these columns when compared to gender
+gender	
+age	
+hypertension	
+heart_disease	
+ever_married	
+work_type	
+residence_type	
+avg_glucose_level	
+bmi	
+smoking_status	
+stroke
+
+======
+
+
+
+To analyze the association between stroke and gender, we can calculate the odds ratio (OR). The odds ratio is a measure of the association between two variables and is calculated as the ratio of the odds of the outcome (stroke) in one group (males) to the odds of the outcome in the other group (females).
+
+The formula for the odds ratio is:
+
+Odds ratio = (a/b) / (c/d)
+
+where:
+
+a = number of males with stroke
+b = number of males without stroke
+c = number of females with stroke
+d = number of females without stroke
+
+Plugging in the values from the table, we get:
+
+Odds ratio = (108/2007) / (141/2853)
+Odds ratio = 0.0537 / 0.0495
+Odds ratio = 1.084
+
+Therefore, the odds of having a stroke are 1.084 times higher in males compared to females.
+
+To calculate the lower and upper boundaries of the 95% confidence interval for the odds ratio, we can use the following formula:
+
+Lower bound = exp(ln(OR) - 1.96 * SE)
+Upper bound = exp(ln(OR) + 1.96 * SE)
+
+where:
+
+ln = natural logarithm
+SE = standard error of the log odds ratio, which is calculated as:
+
+SE = sqrt(1/a + 1/b + 1/c + 1/d)
+
+Plugging in the values from the table, we get:
+
+SE = sqrt(1/108 + 1/2007 + 1/141 + 1/2853)
+SE = 0.1606
+
+ln(OR) = ln(1.084) = 0.0808
+
+Lower bound = exp(0.0808 - 1.96 * 0.1606) = 0.758
+Upper bound = exp(0.0808 + 1.96 * 0.1606) = 1.431
+
+Therefore, the 95% confidence interval for the odds ratio is 0.758 to 1.431. This means that we are 95% confident that the true odds ratio lies between 0.758 and 1.431, and we cannot reject the null hypothesis that there is no association between stroke and gender.
+
+
+===
+
+
+SE(ln(Risk Ratio)) = sqrt((1 / a) + (1 / b) + (1 / c) + (1 / d))
+
+
+=($D5*B$7)/$D$7
+
+
+https://333648735410.signin.aws.amazon.com/console
+
+
+I.	Bi- and Multi-variate Analysis
+
+===
+
+Allignment Issue
+
+=======
+
+You must apply at least two inferential techniques; at least one must be predictive, and they can be either interpolation (regression analysis) or extrapolation (forecasting). 
+
+
+Q1. Does the person's age affect the risk of stroke. OR (Age ∝ Stroke)?
+Q2. Is stroke influenced by gender?
+Q.3 What is the impact of the type of work they do on stroke risk?
+Q4. Can smoking increase the risk of stroke?
+
+
+Correlation 1 step 
+Regression 2 step
+
+March 22 - and one before - Jonathan lecture.
+
+
+
+
+This is a correlation matrix showing the pairwise correlations between stroke, age, hypertension, heart disease, average glucose level, and BMI.
+
+Looking at the values in the matrix, we can see that stroke is positively correlated with age (0.245), average glucose level (0.132), and hypertension (0.128), meaning that as these variables increase, the likelihood of having a stroke also tends to increase.
+
+Heart disease and average glucose level also show a weak positive correlation with stroke (0.135 and 0.132, respectively).
+
+BMI, on the other hand, shows a very weak positive correlation with stroke (0.042), indicating that it is not strongly associated with the risk of stroke.
+
+In summary, this correlation analysis suggests that age, hypertension, and average glucose level are the most important predictors of stroke, while heart disease and BMI have weaker associations with stroke. 
