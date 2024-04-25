@@ -1,0 +1,147 @@
+Static
+========
+-> Preload list of malicious ips in spark code (MaliciousData.scala)
+-> Spark Streaming code listens to Kinesis Stream and process them:
+ => read event from Kinesis Steam 
+ => apply regex of IP address to extract all ips from event
+ => check if extracted ip address present in MaliciousData.scala:
+    => if present => means malicious event => so, insert into malicious_event_details table for further analysis (alerting security team or reporting)
+    => if not present => means not malicious event => do nothing (ignore event)
+
+drawback:
+-> for every new malicious ip address identified in real world, we need to update MaliciousData.scala file and restart spark job
+
+so, we used dynamic mode in realworld scenarios
+Dynamic Mode
+==================
+-> We create a pipeline using logstash to do ETL:
+	=> read data/txt files from s3 bucket (input block of logastsh)
+	=> extract ips from each line (filter block of logstash)
+	=> insert into mysql table: malicious_ips (output block of logstash)
+-> Spark Streaming code listens to Kinesis Stream and process them:
+ => read event from Kinesis Steam 
+ => apply regex of IP address to extract all ips from event
+ => check if extracted ip address present in malicious_ips table:
+    => if present => means malicious event => so, insert into malicious_event_details table for further analysis (alerting security team or reporting)
+    => if not present => means not malicious event => do nothing (ignore event)
+
+benefits:
+-> for any new malicious ip address identified in real world, we just need to upload new txt file to s3 bucket.
+
+
+
+use pedramdb;
+
+CREATE TABLE `pedramdb`.`malicious_ips` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `ip` MEDIUMTEXT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE TABLE `pedramdb`.`malicious_event_details` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `raw_event` MEDIUMTEXT NULL,
+  `malicious_ips` MEDIUMTEXT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+
+
+select * from `pedramdb`.`malicious_ips`;
+
+select * from `pedramdb`.`malicious_event_details`;
+
+insert into `pedramdb`.`malicious_ips` (ip) values ('125.125.125.124');
+
+
+--- 
+steps to reproduce:
+
+-> create kinesis stream
+-> copy name and update: KINESIS_STREAM_NAME constant in Main.java/Main.scala of TI project and KINESIS_STREAM_NAME constant in Main.java of simulator project
+-> create IAM user with programmatic access with permissions:
+ KinesisFull & S3Full
+-> update Acess & Secres in: ACCESS_KEY & SECRET_KEY in Main.java of simulator project and logstash conf (s3-mysql-ip.conf) s3 input section
+-> create s3 bucket from aws console
+-> update s3 bucket name/details in logstash conf (s3-mysql-ip.conf) s3 input section
+-> DB create (RDS)
+-> connect to rds and executre create table cmds:
+
+CREATE TABLE `pedramdb`.`malicious_ips` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `ip` MEDIUMTEXT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE TABLE `pedramdb`.`malicious_event_details` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `raw_event` MEDIUMTEXT NULL,
+  `malicious_ips` MEDIUMTEXT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+-> update RDS details into Main.java/Main.scala spark code (DB_CONNECTION_URL constant)
+-> ** make sure schema name is same in variables: sqlQueryString, prepareStatement (Main.java/Main.scala)
+-> create EMR by cloning or selecting version: 5.34 (prefered) 
+-> after EMR is running state: update SG to allow local ip for putty, winscp & monitoring
+-> copy code folder to EMR master winscp
+-> connect to EMR master throught putty
+-> install maven:
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+
+-> cd to src
+-> mvn clean package (creates a .jar file in target folder)
+-> run spark submit cmd:
+spark-submit --master yarn --deploy-mode cluster --name "threatintel-app" --class org.example.Main /home/ec2-user/ti/target/ti-spark-job-1.0-SNAPSHOT.jar
+-> putty should show application status: accepted and then running
+-> to kill application:
+ ctrl + c
+ yarn application -list
+ yarn application -kill %{application_id} (Ex: application_1644752331516_0004)
+-> monitoring:
+resouce url: http:%{emr_master_ip}:8088/
+(** for any new page opened in browser, replace 172.xxx local ip with master public ip like ec2-xxx)
+-> initially 0 records in streaming tab
+-> simulation and evaluation:
+-> run simulator code to push some events into kinesis stream
+-> spark will listen to this events and run topology
+-> run select queries from workbench to see malicious events:
+select * from `pedramdb`.`malicious_event_details`;
+
+-> to initiate dynamic data mode:
+-> download logstash
+-> install jdbc ouput plugin:
+bin\logstash-plugin install logstash-output-jdbc
+-> download mysql connect jar file (Ex: C:\Users\Precision\Documents\Zoom\Malware Analysis AWS Dec 25 - Tagorenath V\Feb 13\mysql-connector-java-8.0.11.jar)
+-> update driver_jar_path in logstash conf file (s3-mysql-ip.conf)
+-> run logstash:
+bin\logstash -f "path_to_conf_file" (Ex: C:\Users\Precision\Documents\Zoom\Malware Analysis AWS Dec 25 - Tagorenath V\Feb 13\s3-mysql-ip.conf)
+-> create a text file with malilcious ips copied from https://github.com/BlancRay/Malicious-ip/blob/master/ips  (Ex: C:\Users\Precision\Documents\Zoom\Malware Analysis AWS Dec 25 - Tagorenath V\Feb 13\malicious_ip.txt)
+-> upload thi file to s3 bucket
+-> logstash will read this txt file from s3 and insert data to malicious_ips table
+-> run select query to check malicious ips:
+select * from `pedramdb`.`malicious_ips`;
+
+-> repeat simulation and evaluation:
+-> run simulator code to push some events into kinesis stream
+-> spark will listen to this events and run topology
+-> run select queries from workbench to see malicious events:
+select * from `pedramdb`.`malicious_event_details`;
+
+
+End
+=================================================================================================================s
+
+select * from `pedramdb`.`malicious_ips`; 
+# uploaded to s3, insert by logstash
+
+select * from `pedramdb`.`malicious_event_details`; 
+# raw_events uploaded to kinesis by simulator, streamed, processed & insert by spark-code
+
+
+
+
+spark-submit --master yarn --deploy-mode cluster --name "threatintel-app" --class KinesisSparkStreamingApp /usr/Threat_Intelligence/target/Threat_Intelligence_ArtifactID-0.0.1-SNAPSHOT.jar
