@@ -1,0 +1,810 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20232.23.0611.2007                               -->
+<workbook original-version='18.1' source-build='2023.2.0 (20232.23.0611.2007)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='cardio_train+' inline='true' name='federated.1fy5qgs174r05t1dclx9y0jfpg8r' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cardio_train' name='textscan.1fm6wzw11glu0k13yynfp19rqanf'>
+            <connection class='textscan' directory='C:/Users/bhave/OneDrive/Desktop/BDAT SEM 2/Data Visualization/Final Project Files/New folder' filename='cardio_train.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[cardio_train.csv].[id]' />
+              <expression op='[healthcare-dataset-stroke-data.csv].[id]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1fm6wzw11glu0k13yynfp19rqanf' name='cardio_train.csv' table='[cardio_train#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='integer' name='id' ordinal='0' />
+              <column datatype='integer' name='Age' ordinal='1' />
+              <column datatype='integer' name='age(Days)' ordinal='2' />
+              <column datatype='string' name='AgeCategory' ordinal='3' />
+              <column datatype='string' name='Gender' ordinal='4' />
+              <column datatype='integer' name='Height' ordinal='5' />
+              <column datatype='real' name='Weight' ordinal='6' />
+              <column datatype='integer' name='Systolic blood pressure' ordinal='7' />
+              <column datatype='integer' name='Diastolic blood pressure' ordinal='8' />
+              <column datatype='string' name='Cholesterol' ordinal='9' />
+              <column datatype='string' name='Glucose' ordinal='10' />
+              <column datatype='integer' name='Smoking' ordinal='11' />
+              <column datatype='integer' name='Alcohol intake' ordinal='12' />
+              <column datatype='integer' name='Physical activity' ordinal='13' />
+              <column datatype='integer' name='cardiovascular disease' ordinal='14' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1fm6wzw11glu0k13yynfp19rqanf' name='healthcare-dataset-stroke-data.csv' table='[healthcare-dataset-stroke-data#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='integer' name='id' ordinal='0' />
+              <column datatype='string' name='gender' ordinal='1' />
+              <column datatype='real' name='age' ordinal='2' />
+              <column datatype='integer' name='hypertension' ordinal='3' />
+              <column datatype='integer' name='heart_disease' ordinal='4' />
+              <column datatype='string' name='ever_married' ordinal='5' />
+              <column datatype='string' name='work_type' ordinal='6' />
+              <column datatype='string' name='Residence_type' ordinal='7' />
+              <column datatype='real' name='avg_glucose_level' ordinal='8' />
+              <column datatype='string' name='bmi' ordinal='9' />
+              <column datatype='string' name='smoking_status' ordinal='10' />
+              <column datatype='integer' name='stroke' ordinal='11' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[cardio_train.csv].[id]' />
+              <expression op='[healthcare-dataset-stroke-data.csv].[id]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1fm6wzw11glu0k13yynfp19rqanf' name='cardio_train.csv' table='[cardio_train#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='integer' name='id' ordinal='0' />
+              <column datatype='integer' name='Age' ordinal='1' />
+              <column datatype='integer' name='age(Days)' ordinal='2' />
+              <column datatype='string' name='AgeCategory' ordinal='3' />
+              <column datatype='string' name='Gender' ordinal='4' />
+              <column datatype='integer' name='Height' ordinal='5' />
+              <column datatype='real' name='Weight' ordinal='6' />
+              <column datatype='integer' name='Systolic blood pressure' ordinal='7' />
+              <column datatype='integer' name='Diastolic blood pressure' ordinal='8' />
+              <column datatype='string' name='Cholesterol' ordinal='9' />
+              <column datatype='string' name='Glucose' ordinal='10' />
+              <column datatype='integer' name='Smoking' ordinal='11' />
+              <column datatype='integer' name='Alcohol intake' ordinal='12' />
+              <column datatype='integer' name='Physical activity' ordinal='13' />
+              <column datatype='integer' name='cardiovascular disease' ordinal='14' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1fm6wzw11glu0k13yynfp19rqanf' name='healthcare-dataset-stroke-data.csv' table='[healthcare-dataset-stroke-data#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='integer' name='id' ordinal='0' />
+              <column datatype='string' name='gender' ordinal='1' />
+              <column datatype='real' name='age' ordinal='2' />
+              <column datatype='integer' name='hypertension' ordinal='3' />
+              <column datatype='integer' name='heart_disease' ordinal='4' />
+              <column datatype='string' name='ever_married' ordinal='5' />
+              <column datatype='string' name='work_type' ordinal='6' />
+              <column datatype='string' name='Residence_type' ordinal='7' />
+              <column datatype='real' name='avg_glucose_level' ordinal='8' />
+              <column datatype='string' name='bmi' ordinal='9' />
+              <column datatype='string' name='smoking_status' ordinal='10' />
+              <column datatype='integer' name='stroke' ordinal='11' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[AgeCategory]' value='[cardio_train.csv].[AgeCategory]' />
+          <map key='[Age]' value='[cardio_train.csv].[Age]' />
+          <map key='[Alcohol intake]' value='[cardio_train.csv].[Alcohol intake]' />
+          <map key='[Cholesterol]' value='[cardio_train.csv].[Cholesterol]' />
+          <map key='[Diastolic blood pressure]' value='[cardio_train.csv].[Diastolic blood pressure]' />
+          <map key='[Gender]' value='[cardio_train.csv].[Gender]' />
+          <map key='[Glucose]' value='[cardio_train.csv].[Glucose]' />
+          <map key='[Height]' value='[cardio_train.csv].[Height]' />
+          <map key='[Physical activity]' value='[cardio_train.csv].[Physical activity]' />
+          <map key='[Residence_type]' value='[healthcare-dataset-stroke-data.csv].[Residence_type]' />
+          <map key='[Smoking]' value='[cardio_train.csv].[Smoking]' />
+          <map key='[Systolic blood pressure]' value='[cardio_train.csv].[Systolic blood pressure]' />
+          <map key='[Weight]' value='[cardio_train.csv].[Weight]' />
+          <map key='[age(Days)]' value='[cardio_train.csv].[age(Days)]' />
+          <map key='[age]' value='[healthcare-dataset-stroke-data.csv].[age]' />
+          <map key='[avg_glucose_level]' value='[healthcare-dataset-stroke-data.csv].[avg_glucose_level]' />
+          <map key='[bmi]' value='[healthcare-dataset-stroke-data.csv].[bmi]' />
+          <map key='[cardiovascular disease]' value='[cardio_train.csv].[cardiovascular disease]' />
+          <map key='[ever_married]' value='[healthcare-dataset-stroke-data.csv].[ever_married]' />
+          <map key='[gender]' value='[healthcare-dataset-stroke-data.csv].[gender]' />
+          <map key='[heart_disease]' value='[healthcare-dataset-stroke-data.csv].[heart_disease]' />
+          <map key='[hypertension]' value='[healthcare-dataset-stroke-data.csv].[hypertension]' />
+          <map key='[id (healthcare-dataset-stroke-data.csv)]' value='[healthcare-dataset-stroke-data.csv].[id]' />
+          <map key='[id]' value='[cardio_train.csv].[id]' />
+          <map key='[smoking_status]' value='[healthcare-dataset-stroke-data.csv].[smoking_status]' />
+          <map key='[stroke]' value='[healthcare-dataset-stroke-data.csv].[stroke]' />
+          <map key='[work_type]' value='[healthcare-dataset-stroke-data.csv].[work_type]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_CA&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_CA&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Age]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Age</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age(Days)</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[age(Days)]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>age(Days)</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AgeCategory</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[AgeCategory]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>AgeCategory</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Gender</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Gender]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Gender</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Height</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Height]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Height</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Weight</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Weight]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Weight</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Systolic blood pressure</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Systolic blood pressure]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Systolic blood pressure</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Diastolic blood pressure</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Diastolic blood pressure]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Diastolic blood pressure</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Cholesterol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Cholesterol]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Cholesterol</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Glucose</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Glucose]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Glucose</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Smoking</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Smoking]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Smoking</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Alcohol intake</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Alcohol intake]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Alcohol intake</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Physical activity</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Physical activity]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>Physical activity</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cardiovascular disease</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cardiovascular disease]</local-name>
+            <parent-name>[cardio_train.csv]</parent-name>
+            <remote-alias>cardiovascular disease</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id (healthcare-dataset-stroke-data.csv)]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[age]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>age</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hypertension</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[hypertension]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>hypertension</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>heart_disease</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[heart_disease]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>heart_disease</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ever_married</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ever_married]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>ever_married</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>work_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[work_type]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>work_type</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Residence_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Residence_type]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>Residence_type</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_glucose_level</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_glucose_level]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>avg_glucose_level</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bmi</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[bmi]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>bmi</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>smoking_status</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[smoking_status]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>smoking_status</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stroke</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[stroke]</local-name>
+            <parent-name>[healthcare-dataset-stroke-data.csv]</parent-name>
+            <remote-alias>stroke</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Age Category' datatype='string' name='[AgeCategory]' role='dimension' type='nominal' />
+      <column caption='Residence type' datatype='string' name='[Residence_type]' role='dimension' type='nominal' />
+      <_.fcp.ObjectModelTableType.true...column caption='cardio_train.csv' datatype='table' name='[__tableau_internal_object_id__].[cardio_train.csv_2B248E17043B45EBA00E6A82DE244584]' role='measure' type='quantitative' />
+      <column caption='Age1' datatype='real' hidden='true' name='[age]' role='measure' type='quantitative' />
+      <column caption='Avg Glucose Level' datatype='real' hidden='true' name='[avg_glucose_level]' role='measure' type='quantitative' />
+      <column caption='Bmi' datatype='string' hidden='true' name='[bmi]' role='dimension' type='nominal' />
+      <column caption='Cardiovascular Disease' datatype='integer' name='[cardiovascular disease]' role='measure' type='quantitative' />
+      <column caption='Ever Married' datatype='string' name='[ever_married]' role='dimension' type='nominal' />
+      <column caption='Gender1' datatype='string' hidden='true' name='[gender]' role='dimension' type='nominal' />
+      <column caption='Heart Disease' datatype='integer' hidden='true' name='[heart_disease]' role='measure' type='quantitative' />
+      <column caption='Hypertension' datatype='integer' hidden='true' name='[hypertension]' role='measure' type='quantitative' />
+      <column caption='Id (Healthcare-Dataset-Stroke-Data.Csv)' datatype='integer' hidden='true' name='[id (healthcare-dataset-stroke-data.csv)]' role='dimension' type='ordinal' />
+      <column caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal' />
+      <column caption='Smoking Status' datatype='string' hidden='true' name='[smoking_status]' role='dimension' type='nominal' />
+      <column caption='Stroke' datatype='integer' name='[stroke]' role='measure' type='quantitative' />
+      <column caption='Work Type' datatype='string' name='[work_type]' role='dimension' type='nominal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Canada&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='cardio_train.csv' id='cardio_train.csv_2B248E17043B45EBA00E6A82DE244584'>
+            <properties context=''>
+              <relation join='left' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[cardio_train.csv].[id]' />
+                    <expression op='[healthcare-dataset-stroke-data.csv].[id]' />
+                  </expression>
+                </clause>
+                <relation connection='textscan.1fm6wzw11glu0k13yynfp19rqanf' name='cardio_train.csv' table='[cardio_train#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='integer' name='id' ordinal='0' />
+                    <column datatype='integer' name='Age' ordinal='1' />
+                    <column datatype='integer' name='age(Days)' ordinal='2' />
+                    <column datatype='string' name='AgeCategory' ordinal='3' />
+                    <column datatype='string' name='Gender' ordinal='4' />
+                    <column datatype='integer' name='Height' ordinal='5' />
+                    <column datatype='real' name='Weight' ordinal='6' />
+                    <column datatype='integer' name='Systolic blood pressure' ordinal='7' />
+                    <column datatype='integer' name='Diastolic blood pressure' ordinal='8' />
+                    <column datatype='string' name='Cholesterol' ordinal='9' />
+                    <column datatype='string' name='Glucose' ordinal='10' />
+                    <column datatype='integer' name='Smoking' ordinal='11' />
+                    <column datatype='integer' name='Alcohol intake' ordinal='12' />
+                    <column datatype='integer' name='Physical activity' ordinal='13' />
+                    <column datatype='integer' name='cardiovascular disease' ordinal='14' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1fm6wzw11glu0k13yynfp19rqanf' name='healthcare-dataset-stroke-data.csv' table='[healthcare-dataset-stroke-data#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='integer' name='id' ordinal='0' />
+                    <column datatype='string' name='gender' ordinal='1' />
+                    <column datatype='real' name='age' ordinal='2' />
+                    <column datatype='integer' name='hypertension' ordinal='3' />
+                    <column datatype='integer' name='heart_disease' ordinal='4' />
+                    <column datatype='string' name='ever_married' ordinal='5' />
+                    <column datatype='string' name='work_type' ordinal='6' />
+                    <column datatype='string' name='Residence_type' ordinal='7' />
+                    <column datatype='real' name='avg_glucose_level' ordinal='8' />
+                    <column datatype='string' name='bmi' ordinal='9' />
+                    <column datatype='string' name='smoking_status' ordinal='10' />
+                    <column datatype='integer' name='stroke' ordinal='11' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cardio_train+' name='federated.1fy5qgs174r05t1dclx9y0jfpg8r' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1fy5qgs174r05t1dclx9y0jfpg8r'>
+            <column caption='Age Category' datatype='string' name='[AgeCategory]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Gender]' role='dimension' type='nominal' />
+            <column caption='Cardiovascular Disease' datatype='integer' name='[cardiovascular disease]' role='measure' type='quantitative' />
+            <column-instance column='[AgeCategory]' derivation='None' name='[none:AgeCategory:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Gender]' derivation='None' name='[none:Gender:nk]' pivot='key' type='nominal' />
+            <column caption='Stroke' datatype='integer' name='[stroke]' role='measure' type='quantitative' />
+            <column-instance column='[cardiovascular disease]' derivation='Sum' name='[sum:cardiovascular disease:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[stroke]' derivation='Sum' name='[sum:stroke:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1fy5qgs174r05t1dclx9y0jfpg8r].[sum:cardiovascular disease:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1fy5qgs174r05t1dclx9y0jfpg8r].[sum:stroke:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>([federated.1fy5qgs174r05t1dclx9y0jfpg8r].[sum:cardiovascular disease:qk] + [federated.1fy5qgs174r05t1dclx9y0jfpg8r].[sum:stroke:qk])</rows>
+        <cols>([federated.1fy5qgs174r05t1dclx9y0jfpg8r].[none:Gender:nk] / [federated.1fy5qgs174r05t1dclx9y0jfpg8r].[none:AgeCategory:nk])</cols>
+      </table>
+      <simple-id uuid='{76E1A710-0BEC-45ED-A120-1087683D6578}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1fy5qgs174r05t1dclx9y0jfpg8r].[none:AgeCategory:nk]</field>
+            <field>[federated.1fy5qgs174r05t1dclx9y0jfpg8r].[none:Gender:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{F9E9AF6F-25CB-48C8-9186-11615702F8F7}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+      AABJRU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
