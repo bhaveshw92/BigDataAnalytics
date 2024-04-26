@@ -1,0 +1,42 @@
+Group   : 7
+
+AWS - Domain 4 - Analysis  
+----------------------------------------
+Redshift Architecture 
+Redshift in the AWS Ecosystem
+Columnar Databases
+Redshift Table Design - Introduction , Distribution Styles ,Sort Keys ,Data Types ,Compression ,Constraints ,Loading Data AND Maintenance and Operations
+Machine Learning Introduction
+Machine Learning Multiclass Classification Model
+Machine Learning Binary Classification Model
+Machine Learning Regression Model
+Elasticsearch
+Athena
+
+
+Note:
+You must use the atteched template (do not change the collor and fonts )
+Find attachment your assihned topic.
+at least 120 pages of ppt are required.
+Do not copy ,paste from Internet .All materials must be re worded.If your submission is above 25% ,it will be considered as plarigism 
+Each student must implement a lab from the assigned topic.
+Two students can not implement the same lab or scenario
+Lab document must have screen shots with explanation and time stamp) .Do not forget about the table of contents.
+Two files need to be uploaded .(1- a ppt with at least 120 slides and a pdf file which has a lab from each student )
+Watch the recorded lecture on week 8 for more explanation.
+
+Resources
+1. ML-Intro 1 - https://www.coursera.org/lecture/machine-learning-on-aws/course-introduction-ubzq7
+2. Reference - Training, Model, Prediction - Define each in own words 
+3. ML-Intro 3 - https://www.coursera.org/lecture/machine-learning-on-aws/course-introduction-ubzq7
+4. https://docs.aws.amazon.com/pdfs/wellarchitected/latest/machine-learning-lens/wellarchitected-machine-learning-lens.pdf - pdf well architected frame
+
+
+S3 Bucket
+redshift-ml-datacollectionlab
+
+Cluster - redshift-cluster-1
+DB config
+user : awsuser
+pass : AwsUser#7
+
