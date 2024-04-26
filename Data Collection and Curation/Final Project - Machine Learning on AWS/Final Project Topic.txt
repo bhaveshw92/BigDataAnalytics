@@ -35,8 +35,4 @@ Resources
 S3 Bucket
 redshift-ml-datacollectionlab
 
-Cluster - redshift-cluster-1
-DB config
-user : awsuser
-pass : AwsUser#7
 
